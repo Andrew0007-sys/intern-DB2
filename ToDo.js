@@ -44,7 +44,7 @@ const fillHtmlList = () => {
 	todosWrapper.innerHTML = "";
 	if(tasks.length > 0) {
 		filterTasks();
-		tasks.forEach((item, index) => {
+		tasks.forEach((item, index) => { 
 			todosWrapper.innerHTML += createTemplate(item, index);	
 		})
 		todoItemElems = document.querySelectorAll('.todo-item');
@@ -55,7 +55,7 @@ fillHtmlList();
 
 const updateLocal = () => {
 	localStorage.setItem('tasks', JSON.stringify(tasks));
-}
+} 
 
 const completeTask = (index) => {
 	tasks[index].completed = !tasks[index].completed;
@@ -74,7 +74,7 @@ const deleteTask = (index) =>{
 	fillHtmlList();
 } 
 
-addTaskBtn.addEventListener('click', () => {
+addTaskBtn.addEventListener('click', addNewTask = () => {
 	if(deskTaskInput.value == ''){
 		alert('Enter data, please')
 	} else {
@@ -86,12 +86,18 @@ addTaskBtn.addEventListener('click', () => {
 		}
 		getPrior = Number(getPrior);
 		console.log(typeof (getPrior));
-		tasks.push(new Task(deskTaskInput.value.toLowerCase(), getPrior));
+		tasks.unshift(new Task(deskTaskInput.value.toLowerCase(), getPrior));
 		updateLocal();
 		fillHtmlList();
 		deskTaskInput.value = ''; 
 	}
 })
+
+deskTaskInput.addEventListener('keydown', (e) => {
+	if(e.keyCode === 13){
+		addNewTask();
+	}
+} )
 
 document.getElementById('search-todo').oninput = function(){
 	let val = this.value.toLowerCase().trim();

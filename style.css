@@ -70,6 +70,7 @@ h1 {
 	font-size: 25px;
 	color: slateblue;
 	padding: 5px 10px;
+	cursor: pointer;
 }
 .animate
 {
@@ -115,6 +116,7 @@ h1 {
 	font-size: 25px;
 	color: slateblue;
 	padding: 5px 10px;
+	cursor: pointer;
 }
 .container .todo-app-wrapper .filter-btn-wrapper button:active {
 	transform: translate(0px,5px);
@@ -136,6 +138,7 @@ p {
 	font-size: 25px;
 	color: slateblue;
 	padding: 0px 10px;
+	cursor: pointer;
 }
 .container .todo-app-wrapper .prior-btn-wrapper button:active {
 	transform: translate(0px,5px);
@@ -182,12 +185,18 @@ li.todo-item.hide {
 	font-size: 25px;
 	color: slateblue;
 	padding: 0px 10px;
+	cursor: pointer;
 }
 
 .checked .description {
 	text-decoration: line-through;
+	transition: 1s;
+	opacity: .6;
 }
 
+.btn-complete {
+	cursor: pointer;
+}
 /*-----------do responsive--------------------------------------------*/
 
 @media(max-width: 574px){
